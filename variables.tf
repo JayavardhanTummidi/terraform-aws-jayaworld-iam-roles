@@ -39,7 +39,7 @@ variable "managed_policy_arns" {
   default     = []
 }
 
-variable "iamrole_inline_policy" {
+variable "inline_policy" {
   description = "iamrole_inline_policy creation "
   type        = list(any)
   default     = []
