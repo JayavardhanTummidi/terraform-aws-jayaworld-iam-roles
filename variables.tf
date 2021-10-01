@@ -42,13 +42,13 @@ variable "managed_policy_arns" {
 variable "iamrole_inline_policy" {
   description = "iamrole_inline_policy creation "
   type        = list(any)
-  default = []
+  default     = []
 }
 
 variable "max_session_duration" {
   description = "Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours."
   type        = number
-  default     = "3000"
+  default     = "3600"
 }
 
 variable "tags" {
