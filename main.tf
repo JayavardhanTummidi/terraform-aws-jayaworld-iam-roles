@@ -12,10 +12,11 @@ resource "aws_iam_role" "jayaworld-iam-role" {
   assume_role_policy    = var.assume_role_policy
   managed_policy_arns   = var.managed_policy_arns
   dynamic "inline_policy" {
-    for_each = var.iamrole_inline_policy == null ? [] : var.iamrole_inline_policy
+    for_each = var.iamrole_inline_policy
+
     content {
-      name   = try(inline_policy.value.name, null)
-      policy = try(inline_policy.value.policy, null)
+      name   = lookup(iamrole_inline_policy.value, "name", null)
+      policy = lookup(iamrole_inline_policy.value, "policy", null)
     }
   }
   max_session_duration = var.max_session_duration
