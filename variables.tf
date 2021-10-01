@@ -41,11 +41,8 @@ variable "managed_policy_arns" {
 
 variable "iamrole_inline_policy" {
   description = "iamrole_inline_policy creation "
-  type        = any
-  default = {
-    name   = null
-    policy = null
-  }
+  type        = list(any)
+  default = []
 }
 
 variable "max_session_duration" {
