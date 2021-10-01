@@ -14,8 +14,8 @@ resource "aws_iam_role" "jayaworld-iam-role" {
   dynamic "inline_policy" {
     for_each = var.iamrole_inline_policy == null ? [] : var.iamrole_inline_policy
     content {
-      name   = lookup(inline_policy.value.name, null)
-      policy = lookup(inline_policy.value.policy, null)
+      name   = try(inline_policy.value.name, null)
+      policy = try(inline_policy.value.policy, null)
     }
   }
   max_session_duration = var.max_session_duration
